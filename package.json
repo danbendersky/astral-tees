@@ -21,5 +21,8 @@
   "homepage": "https://github.com/danbendersky/astral-tees#readme",
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
