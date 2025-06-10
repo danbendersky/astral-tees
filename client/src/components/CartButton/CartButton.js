@@ -1,19 +1,19 @@
 import { useNavigate } from 'react-router-dom';
-import astralLogo from '../../assets/astral-logo.png';
+import cart from '../../assets/cart.png';
 
 const Logo = () => {
     const navigate = useNavigate();
     const handleClick = () => {
-        navigate('/');
+        navigate('/cart');
     };
     return (
         <img
-            src={astralLogo}
-            alt="Astral Logo"
+            src={cart}
+            alt="Cart"
             style={{
                 cursor: 'pointer',
-                width: '25vw',
-                maxWidth: '300px',
+                width: '10vw',
+                maxWidth: '120px',
                 height: 'auto'
             }}
             onClick={handleClick}

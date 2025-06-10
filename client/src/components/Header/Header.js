@@ -1,11 +1,18 @@
 import './Header.css';
-import astralLogo from '../../astral-logo.png';
+import Logo from '../Logo/Logo.js'
+import Cart from "../CartButton/CartButton.js"
+import Search from '../SearchButton/SearchButton.js'
 
 function Header() {
-    return(
-        <header className="header">
-            <img src={astralLogo} alt="Astral Logo"></img>
-
+    return (
+        <header>
+            <div className='header-left'>
+                <Logo />
+            </div>
+            <div className="header-right">
+                <Cart />
+                <Search />
+            </div>
         </header>
     );
 }
