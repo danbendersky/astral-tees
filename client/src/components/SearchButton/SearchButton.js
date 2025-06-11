@@ -9,35 +9,30 @@ function SearchButton() {
         navigate(`/search?query=${encodeURIComponent(query)}`);
     };
     return (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%'}}>
             <input
                 type="text"
                 value={query}
                 onChange={e => setQuery(e.target.value)}
                 placeholder="Search..."
                 style={{
-                    marginRight: '8px',
-                    padding: '6px 10px',
-                    fontSize: '1rem',
-                    borderRadius: '4px',
-                    border: '1px solid #ccc',
-                    // Make input width dynamic: 2x the image width (20vw, max 240px)
-                    width: '40vw',
-                    maxWidth: '240px',
-                    minWidth: '80px',
-                    flexShrink: 1
-                }}
+                cursor: 'pointer',
+                width: '100%',
+                height: '20%',
+                objectFit: 'cover',
+                maxWidth: '300px',
+                maxHeight: '300px'
+            }}
             />
             <img
                 src={search}
                 alt="Search"
                 style={{
-                    cursor: 'pointer',
-                    width: '10vw',
-                    maxWidth: '120px',
-                    minWidth: '40px',
-                    height: 'auto'
-                }}
+                cursor: 'pointer',
+                width: 'auto',
+                height: '80%',
+                objectFit: 'contain',
+            }}
                 onClick={handleClick}
             />
         </div>

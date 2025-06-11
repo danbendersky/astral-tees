@@ -12,9 +12,9 @@ const Logo = () => {
             alt="Cart"
             style={{
                 cursor: 'pointer',
-                width: '10vw',
-                maxWidth: '120px',
-                height: 'auto'
+                width: 'auto',
+                height: '100%',
+                objectFit: 'contain',
             }}
             onClick={handleClick}
         />

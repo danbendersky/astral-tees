@@ -2,14 +2,20 @@ header {
     display: flex;
     flex-direction: row;
     height: 80px;
+    background-color: #222;
 }
 
 .header-right {
     display: flex;
-    gap: clamp(8px, 12vw, 32px);
+    margin-left: auto;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-left {
     display: flex;
-    gap: clamp(8px, 12vw, 32px);
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }

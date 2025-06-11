@@ -12,9 +12,9 @@ const Logo = () => {
             alt="Astral Logo"
             style={{
                 cursor: 'pointer',
-                width: '25vw',
-                maxWidth: '300px',
-                height: 'auto'
+                width: 'auto',
+                height: '100%',
+                objectFit: 'contain',
             }}
             onClick={handleClick}
         />
