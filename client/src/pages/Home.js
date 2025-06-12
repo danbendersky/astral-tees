@@ -1,9 +1,10 @@
 import Header from '../components/Header/Header';
+import FeaturedItems from '../components/FeaturedItems/FeaturedItems';
 
 const Home = () => (
     <>
         <Header />
-        This is where the home page would be
+        <FeaturedItems />
     </>
 );
 

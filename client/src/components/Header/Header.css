@@ -1,3 +1,15 @@
+.scroll-header {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  scrollbar-width: none; /* Firefox */
+  white-space: nowrap;
+}
+
+.scroll-header::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
 header {
     display: flex;
     flex-direction: row;

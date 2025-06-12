@@ -5,6 +5,7 @@ import Search from '../SearchButton/SearchButton.js'
 
 function Header() {
     return (
+        <div className='scroll-header'>
         <header>
             <div className='header-left'>
                 <Logo />
@@ -14,6 +15,7 @@ function Header() {
                 <Search />
             </div>
         </header>
+        </div>
     );
 }
 
