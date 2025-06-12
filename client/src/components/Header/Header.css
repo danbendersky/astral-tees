@@ -1,5 +1,4 @@
 .scroll-header {
-  display: flex;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
   scrollbar-width: none; /* Firefox */
