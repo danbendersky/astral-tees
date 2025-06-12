@@ -2,7 +2,6 @@ header {
     display: flex;
     flex-direction: row;
     height: 80px;
-    background-color: #222;
 }
 
 .header-right {

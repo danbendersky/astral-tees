@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 function SearchButton() {
     const [query, setQuery] = useState('');
+    const [showSearch, setShowSearch] = useState(false);
     const navigate = useNavigate();
     const handleClick = () => {
         navigate(`/search?query=${encodeURIComponent(query)}`);

@@ -1,0 +1,35 @@
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.search-input-wrapper {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 5px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.search-input-wrapper.active {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.search-input {
+  width: 200px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
