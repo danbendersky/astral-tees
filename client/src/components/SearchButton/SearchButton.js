@@ -1,43 +1,61 @@
 import { useNavigate } from 'react-router-dom';
 import search from '../../assets/search.png';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 function SearchButton() {
     const [query, setQuery] = useState('');
     const [showSearch, setShowSearch] = useState(false);
     const navigate = useNavigate();
-    const handleClick = () => {
-        navigate(`/search?query=${encodeURIComponent(query)}`);
-    };
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        const handleClick = (event) => {
+            if (inputRef.current && !inputRef.current.contains(event.target)) {
+                setShowSearch(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClick);
+        return () => document.removeEventListener("mousedown", handleClick);
+    }, []);
+
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%'}}>
-            <input
-                type="text"
-                value={query}
-                onChange={e => setQuery(e.target.value)}
-                placeholder="Search..."
-                style={{
-                cursor: 'pointer',
-                width: '100%',
-                height: '20%',
-                objectFit: 'cover',
-                maxWidth: '300px',
-                maxHeight: '300px'
-            }}
-            />
+        <div className="search-container" style={{ display: 'flex', alignItems: 'center' }}>
             <img
+                className="search-button"
                 src={search}
-                alt="Search"
+                alt="Search Button"
                 style={{
-                cursor: 'pointer',
-                width: 'auto',
-                height: '80%',
-                objectFit: 'contain',
-            }}
-                onClick={handleClick}
+                    width: '50px',
+                    height: '50px',
+                    objectFit: 'contain',
+                    cursor: 'pointer'
+                }}
+                onClick={() => {
+                    setShowSearch((prev) => !prev);
+                    if (!showSearch && query) {
+                        navigate(`/search?query=${encodeURIComponent(query)}`);
+                    }
+                }}
             />
+
+            {showSearch && (
+                <div
+                    className={`search-input-wrapper ${showSearch ? 'active' : ''}`}
+                    ref={inputRef}
+                >
+                    <input
+                        type="text"
+                        className="search-input"
+                        value={query}
+                        onChange={e => setQuery(e.target.value)}
+                        placeholder="Search..."
+                        autoFocus
+                        onEnter
+                        onKeyDown={(e) => {if(e.key === 'Enter') navigate(`/search?query=${encodeURIComponent(query)}`);}}
+                    />
+                </div>
+            )}
         </div>
     );
-};
-
+}
 export default SearchButton;
