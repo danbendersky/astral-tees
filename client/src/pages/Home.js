@@ -1,11 +1,11 @@
 import Header from '../components/Header/Header';
-import FeaturedItems from '../components/FeaturedItems/FeaturedItems';
+import ItemArray from '../components/ItemArray/ItemArray';
 
 const Home = () => (
-    <>
+    <div style={{ height: '100vh', overflowY: 'auto' }}>
         <Header />
-        <FeaturedItems />
-    </>
+        <ItemArray />
+    </div>
 );
 
 export default Home;
