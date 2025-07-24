@@ -1,47 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { data } from "react-router-dom";
+import './Product.css';
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Product({ productData }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/product/${encodeURIComponent(productData.id)}`);
+  }
   return (
-    <div
-      className="product-card"
-      style={{
-        background: "rgba(75, 64, 195, 0.6)",
-        borderRadius: "12px",
-        padding: "12px",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-        backdropFilter: "blur(2px)",
-        width: "46%",
-        height: "40%",
-        maxHeight: "600px",
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden",
-        alignItems: "center",
-        textAlign: "center"
-      }}
-    >
+    <button className="product-tile" onClick={handleClick}>
       <h2 style={{ 
         justifyContent: "center", 
         fontSize: "2rem", 
-        marginBottom: "8px", 
+        marginBottom: "10px", 
         textAlign: "center",
-        marginTop: 0 // Remove gap above the title
+        marginTop: 0
       }}>
         {productData.title}
       </h2>
       {productData.previewUrl && (
-        <div style={{ width: "100%", aspectRatio: "1/1", position: "relative", overflow: "hidden" }}>
+        <div style={{ width: "300px", height: "300px", position: "relative", overflow: "hidden", margin: "0 auto" }}>
           <img
             src={productData.previewUrl}
             alt={productData.name}
             style={{
               width: "100%",
-              height: "100%",
-              objectFit: "contain",
-              position: "absolute",
-              top: 0,
-              left: 0
+              height: "auto",
+              display: "block",
             }}
           />
         </div>
@@ -56,7 +41,7 @@ function Product({ productData }) {
         }}
         dangerouslySetInnerHTML={{ __html: productData.description }}
       /> */}
-    </div> 
+    </button> 
   );
 }
 

@@ -38,8 +38,9 @@ app.get('/fetchproduct', async (req, res) => {
           'X-API-KEY': process.env.GELATO_KEY
         }
     });
-    console.log(response);
-    res.send(response);
+    const data = await response.json();
+    console.log(data);
+    res.json(data);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch product data' });
   }

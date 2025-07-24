@@ -1,0 +1,44 @@
+.exit-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+}
+
+.exit-btn:hover {
+  border: 2px solid rgb(215, 26, 26);
+  box-shadow: 0 0 10px 2px rgb(215, 26, 26);
+}
+
+.title {
+  justify-content: center;
+  font-size: 3rem;
+  text-align: center;
+  margin: 5px;
+}
+
+.cover {
+  max-width: 400px;
+  height: auto;
+}
+
+.description-wrapper {
+  border: 5px solid rgb(255, 0, 0);
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.product-description {
+  display: flex;
+  gap: 3rem;
+  width: 100%;
+  overflow: visible;
+  margin-top: 0rem;
+  text-align: left;
+  line-height: 1.6;
+  word-break: break-word;
+  max-width: 100%;
+  white-space: normal;
+}

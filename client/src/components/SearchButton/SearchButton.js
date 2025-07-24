@@ -50,7 +50,6 @@ function SearchButton() {
                         onChange={e => setQuery(e.target.value)}
                         placeholder="Search..."
                         autoFocus
-                        onEnter
                         onKeyDown={(e) => {if(e.key === 'Enter') navigate(`/search?query=${encodeURIComponent(query)}`);}}
                     />
                 </div>

@@ -4,6 +4,7 @@ import Cart from './pages/Cart.js';
 import Home from './pages/Home.js';
 import SearchResults from './pages/SearchResults.js';
 import InteractiveBubble from './components/InteractiveBubble/InteractiveBubble.js';
+import Product from './pages/Product.js'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<SearchResults />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/product/:id" element={<Product />} />
           </Routes>
         </div>
         <div className="gradients-container" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', pointerEvents: 'none', zIndex: 1 }}>
