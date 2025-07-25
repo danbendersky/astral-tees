@@ -5,9 +5,14 @@ import './Product.css'
 const Product = () => (
     <>
         <Header/>
-        <div className="product-card">
-            <div>
-                <ProductPage/>
+        <div style={{
+            display: 'flex',
+            justifyContent: 'center'
+        }}>
+            <div className="product-card">
+                <div>
+                    <ProductPage/>
+                </div>
             </div>
         </div>
     </>

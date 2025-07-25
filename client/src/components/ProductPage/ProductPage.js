@@ -37,6 +37,7 @@ function ProductPage() {
         <h2 className="title">
           {productData.title}
         </h2>
+        <div style={{display: "flex", flexDirection: "horizontal"}}>
         {productData.previewUrl && (
         <img
             className="cover"
@@ -48,6 +49,7 @@ function ProductPage() {
             <div className="product-description"
                 dangerouslySetInnerHTML={{ __html: productData.description }}
             />
+        </div>
         </div>
     </div>
   );

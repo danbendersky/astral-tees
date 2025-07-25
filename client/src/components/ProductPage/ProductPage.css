@@ -19,21 +19,23 @@
 }
 
 .cover {
-  max-width: 400px;
+  max-width: 500px;
   height: auto;
 }
 
 .description-wrapper {
-  border: 5px solid rgb(255, 0, 0);
   display: flex;
+  justify-content: center;
   width: 100%;
   height: auto;
 }
 
 .product-description {
+  font-size: 1.25rem;
   display: flex;
-  gap: 3rem;
-  width: 100%;
+  flex-direction: column;
+  gap: 2rem;
+  width: 95%;
   overflow: visible;
   margin-top: 0rem;
   text-align: left;
