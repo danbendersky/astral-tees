@@ -2,6 +2,7 @@ import './ProductPage.css'
 import React, { useEffect, useState} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import exit from '../../assets/exit.png';
+import ProductPurchase from '../ProductPurchase/ProductPurchase';
 
 function ProductPage() {
   const navigate = useNavigate();
@@ -39,11 +40,13 @@ function ProductPage() {
         </h2>
         <div style={{display: "flex", flexDirection: "horizontal"}}>
         {productData.previewUrl && (
-        <img
-            className="cover"
-            src={productData.previewUrl}
-            alt={productData.name}
-        />
+        <div className='cover-wrapper'>
+            <img
+                className="cover"
+                src={productData.previewUrl}
+                alt={productData.name}
+            />
+        </div>
         )}
         <div className="description-wrapper">
             <div className="product-description"
@@ -51,6 +54,7 @@ function ProductPage() {
             />
         </div>
         </div>
+        <ProductPurchase productData={productData}/>
     </div>
   );
 }

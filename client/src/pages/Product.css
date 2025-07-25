@@ -8,13 +8,21 @@
     transition: border 0.3s ease, box-shadow 0.3s ease;
     border: 2px solid #ccc;
     height: auto;
-    width: 97%;
+    width: 98%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: auto;
+    overflow: visible;
     text-align: center;
     box-sizing: border-box;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-y: auto;
 }
 
 .product-card:hover {

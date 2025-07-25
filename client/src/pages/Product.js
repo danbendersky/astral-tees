@@ -10,9 +10,7 @@ const Product = () => (
             justifyContent: 'center'
         }}>
             <div className="product-card">
-                <div>
-                    <ProductPage/>
-                </div>
+                <ProductPage/>
             </div>
         </div>
     </>

@@ -1,0 +1,9 @@
+.product-bar {
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    justify-content: center;
+    margin-bottom: 0px;
+    overflow: visible;
+    gap: 10px;
+}
