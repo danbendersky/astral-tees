@@ -10,6 +10,7 @@
   border: 2px solid #000000;
   border-radius: 8px;
   transition: border 0.3s ease, box-shadow 0.3s ease;
+  font-family: sans-serif;
   cursor: pointer;
   font-size: 25px;
 }
@@ -25,6 +26,7 @@
   background-color: rgba(255, 255, 255, 0);
   z-index: 1;
   justify-content: center;
+  margin-top: 3px;
 }
 
 .dropdown-content button {

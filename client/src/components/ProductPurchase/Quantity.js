@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './Dropdown.css'; // use same CSS as above
 
-function Quantity() {
+function Quantity( { choose } ) {
   const [open, setOpen] = useState(false);
   const [quantity, setQuantity] = useState('Quantity');
 
   const select = (input) => {
     setQuantity(input);
+    choose(input);
   }
 
   return (
@@ -18,12 +19,15 @@ function Quantity() {
       </button>
       {open && (
         <div className="dropdown-content">
-          <button onClick={() => select(1)}>1</button>
-          <button onClick={() => select(2)}>2</button>
-          <button onClick={() => select(3)}>3</button>
-          <button onClick={() => select(4)}>4</button>
-          <button onClick={() => select(5)}>5</button>
-          <button onClick={() => select(6)}>6</button>
+          {[...Array(6)].map((_, i) => (
+            <button 
+              key={i}
+              onClick={() => select(i + 1)}
+            >
+              {i + 1}
+            </button>
+          ))}
+          {}
         </div>
       )}
     </div>

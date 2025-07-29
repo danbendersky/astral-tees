@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './Dropdown.css';
 
-function Size() {
+function Size( { choose }) {
   const [open, setOpen] = useState(false);
   const [size, setSize] = useState('Size');
   
   const select = (input) => {
     setSize(input);
+    choose(input);
   }
 
   return (
@@ -18,12 +19,14 @@ function Size() {
       </button>
       {open && (
         <div className="dropdown-content">
-          <button onClick={() => select('XS')}>XS</button>
-          <button onClick={() => select('S')}>S</button>
-          <button onClick={() => select('M')}>M</button>
-          <button onClick={() => select('L')}>L</button>
-          <button onClick={() => select('XL')}>XL</button>
-          <button onClick={() => select('XXL')}>XXL</button>
+          {['XS', 'S', 'M', 'L', 'XL', 'XXL'].map((s) => (
+            <button 
+              key={s}
+              onClick={() => {select(s);}}
+            >
+              {s}
+            </button>
+          ))}
         </div>
       )}
     </div>

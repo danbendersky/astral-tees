@@ -53,8 +53,8 @@ function ProductPage() {
                 dangerouslySetInnerHTML={{ __html: productData.description }}
             />
         </div>
+        <ProductPurchase className='purchase' productData={productData}/>
         </div>
-        <ProductPurchase productData={productData}/>
     </div>
   );
 }
