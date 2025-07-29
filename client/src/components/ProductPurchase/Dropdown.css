@@ -9,20 +9,46 @@
   color: rgb(0, 0, 0);
   border: 2px solid #000000;
   border-radius: 8px;
-  transition: border 0.3s ease, box-shadow 0.3s ease;
+  transition: border 0.7s ease, 
+    box-shadow 0.7s ease, 
+    background-color 0.7s ease,
+    color 0.7s ease
+    webkit-text-stroke 0.7s ease;
   font-family: sans-serif;
   cursor: pointer;
   font-size: 25px;
+  position: relative;
+}
+
+.dropbtn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../../assets/galaxy-background.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  z-index: -1;
 }
 
 .dropbtn:hover {
+  -webkit-text-stroke: 1px black;
+  background-color: transparent;
   border: 2px solid white;
   box-shadow: 0 0 10px 2px white;
+  color: white;
+}
+
+.dropbtn:hover::before {
+  opacity: 1;
 }
 
 .dropdown-content {
   display: block;
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0);
   z-index: 1;
   justify-content: center;
@@ -48,8 +74,4 @@
 .dropdown-content button:hover {
   border: 1px solid white;
   box-shadow: 0 0 1px 1px white;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
 }

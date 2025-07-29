@@ -12,9 +12,8 @@ function Quantity( { choose } ) {
 
   return (
     <div className="dropdown"
-    onMouseEnter={() => setOpen(true)}
     onMouseLeave={() => setOpen(false)}>
-      <button className="dropbtn" onClick={() => setOpen(!open)}>
+      <button className="dropbtn" onMouseEnter={() => setOpen(true)} onClick={() => setOpen(!open)}>
         {quantity} ▼
       </button>
       {open && (
