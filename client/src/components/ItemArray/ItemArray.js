@@ -12,7 +12,18 @@ function ItemArray({ itemFilter }) {
                 console.log(data);
                 // Filter products based on itemFilter if provided
                 const filteredProducts = itemFilter
-                    ? data.products.filter(product => itemFilter(product))
+                    ? (() => {
+                        const scoredResults = data.products.map(product => {
+                            const titleMatch = product.title.toLowerCase().includes(itemFilter);
+                            const descMatch = product.description.toLowerCase().includes(itemFilter);
+                            let score = 0;
+                            if (titleMatch) score += 2;
+                            if (descMatch) score += 1;
+                            return { ...product, score };
+                        }).filter(p => p.score > 0);
+                        scoredResults.sort((a, b) => b.score - a.score);
+                        return scoredResults;
+                    })()
                     : data.products;
                 setProducts(filteredProducts);
             })

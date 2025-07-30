@@ -4,7 +4,7 @@
   width: 100%;
   justify-content: top;
   align-content: center;
-  margin-bottom: 10%;
+  gap: 20px;
 }
 
 .product-bar {
@@ -43,10 +43,13 @@
 
 .c-w {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-content: center;
-  justify-content: bottom;
-  margin-top: 10%;
+  justify-content: center;
+  margin-top: 15%;
+  margin-left: 9%;
+  margin-right: 9%;
+  position: absolute;
 }
 
 .price {
@@ -125,11 +128,11 @@
     font-family: 'Times New Roman';
     font-size: 70px;
     align-content: center;
-    height: 100%;
     width: fit-content;
     justify-content: center;
-    margin: auto;
     position: relative;
+    height: auto;
+    margin-top: 10px;
 }
 
 .cart-add:hover::before {

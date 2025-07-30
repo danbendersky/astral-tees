@@ -1,10 +1,16 @@
 import Header from '../components/Header/Header';
+import ItemArray from '../components/ItemArray/ItemArray';
+import { useSearchParams } from 'react-router-dom';
 
-const SearchResults = () => (
+function SearchResults() {
+    const [searchParams] = useSearchParams();
+    const query = searchParams.get("query");
+    return (
     <>
         <Header />
-        This is where the search results would be
+        <ItemArray itemFilter={query} />
     </>
-);
+    );
+};
 
 export default SearchResults;
