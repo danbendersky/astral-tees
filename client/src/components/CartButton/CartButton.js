@@ -8,6 +8,7 @@ const Logo = () => {
     };
     return (
         <img
+            id='cart-icon'
             src={cart}
             alt="Cart"
             style={{
@@ -15,6 +16,7 @@ const Logo = () => {
                 width: 'auto',
                 height: '100%',
                 objectFit: 'contain',
+                transition: 'transform 0.3s ease'
             }}
             onClick={handleClick}
         />
