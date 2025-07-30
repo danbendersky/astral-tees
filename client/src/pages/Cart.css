@@ -1,0 +1,10 @@
+.body {
+    overflow-y: scroll;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 10px;
+}

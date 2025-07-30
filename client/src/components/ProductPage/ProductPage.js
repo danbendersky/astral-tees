@@ -44,7 +44,7 @@ function ProductPage() {
             <img
                 className="cover"
                 src={productData.previewUrl}
-                alt={productData.name}
+                alt={productData.title}
             />
         </div>
         )}

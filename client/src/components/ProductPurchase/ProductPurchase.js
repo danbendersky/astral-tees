@@ -57,6 +57,8 @@ function ProductPurchase({productData}) {
             productId: productData.id,
             qty: quantity,
             size: size,
+            image: productData.previewUrl,
+            name: productData.title,
             price: getPrice()
         };
 
