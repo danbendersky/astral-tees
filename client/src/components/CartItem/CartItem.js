@@ -1,5 +1,6 @@
 import './CartItem.css';
 import { useNavigate } from "react-router-dom";
+import { Trash2 } from 'lucide-react';
 
 function CartItem({ itemData, reloadTrigger}) {
   const navigate = useNavigate();
@@ -61,9 +62,9 @@ function CartItem({ itemData, reloadTrigger}) {
       Total Price:<br></br>
       {itemData.qty * itemData.price}
       </div>
-      <button className='delete' onClick={handleDelete}>
-        Trash can here
-      </button>
+      <div className='delete' onClick={handleDelete}>
+        <Trash2 className='trash-2'/>
+      </div>
     </div> 
   );
 }
