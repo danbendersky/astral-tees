@@ -1,15 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
-import {loadStripe} from '@stripe/stripe-js';
-import {
-  EmbeddedCheckoutProvider,
-  EmbeddedCheckout
-} from '@stripe/react-stripe-js';
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate
-} from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
 const Return = () => {

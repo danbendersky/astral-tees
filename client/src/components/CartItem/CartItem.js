@@ -1,5 +1,4 @@
 import './CartItem.css';
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function CartItem({ itemData, reloadTrigger}) {
@@ -29,6 +28,7 @@ function CartItem({ itemData, reloadTrigger}) {
         justifyContent: "left", 
         fontSize: "2rem", 
         textAlign: "center",
+        maxWidth: "20%"
       }}>
         {itemData.name}
       </h2>
