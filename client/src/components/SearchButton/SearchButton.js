@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import search from '../../assets/search.png';
+import { Search } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
 function SearchButton() {
@@ -19,15 +19,12 @@ function SearchButton() {
     }, []);
 
     return (
-        <div className="search-container" style={{ display: 'flex', alignItems: 'center' }}>
-            <img
+        <div className="search-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'right'}}>
+            <div
                 className="search-button"
-                src={search}
-                alt="Search Button"
                 style={{
-                    width: '50px',
-                    height: '50px',
-                    objectFit: 'contain',
+                    height: '20%',
+                    aspectRatio: '1 / 1',
                     cursor: 'pointer'
                 }}
                 onClick={() => {
@@ -36,7 +33,9 @@ function SearchButton() {
                         navigate(`/search?query=${encodeURIComponent(query)}`);
                     }
                 }}
-            />
+            >
+                <Search color='white' size='100%' style={{display: 'flex'}}/>
+            </div>
 
             {showSearch && (
                 <div

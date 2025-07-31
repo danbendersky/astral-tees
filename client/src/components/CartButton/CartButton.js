@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import cart from '../../assets/cart.png';
+import { ShoppingCart } from 'lucide-react';
 
 const Logo = () => {
     const navigate = useNavigate();
@@ -7,19 +7,21 @@ const Logo = () => {
         navigate('/cart');
     };
     return (
-        <img
-            id='cart-icon'
-            src={cart}
-            alt="Cart"
-            style={{
-                cursor: 'pointer',
-                width: 'auto',
-                height: '100%',
-                objectFit: 'contain',
-                transition: 'transform 0.3s ease'
-            }}
-            onClick={handleClick}
-        />
+        <div
+        id="cart-icon"
+        style={{
+            cursor: 'pointer',
+            width: 'auto',
+            height: '100%',
+            aspectRatio: '1 / 1',
+            transition: 'transform 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+        }}
+        onClick={handleClick}
+        >
+            <ShoppingCart color="white" size='70%'style={{display: 'flex'}}/>
+        </div>
     );
 };
 
