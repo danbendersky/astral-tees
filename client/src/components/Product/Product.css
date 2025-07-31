@@ -17,7 +17,7 @@
     max-height: 600px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
     align-items: center;
     text-align: center;
 }

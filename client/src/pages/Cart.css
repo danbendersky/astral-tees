@@ -8,3 +8,53 @@
     padding: 1rem;
     gap: 10px;
 }
+
+.checkout {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: relative;
+    backdrop-filter: blur(2px);
+    width: auto;
+    padding: 1rem;
+    transition: border 0.7s ease, 
+      box-shadow 0.7s ease, 
+      background-color 0.7s ease,
+      color 0.7s ease
+      webkit-text-stroke 0.7s ease;
+    color: indigo;
+    border: 2px solid #ccc;
+    height: 40%;
+    max-height: 600px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+    font-size: xx-large;
+    justify-self: center;
+}
+
+.checkout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/galaxy-background.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  z-index: -1;
+}
+
+.checkout:hover {
+  -webkit-text-stroke: 0.5px black;
+  background-color: transparent;
+  border: 2px solid white;
+  box-shadow: 0 0 10px 2px white;
+  color: white;
+}
+
+.checkout:hover::before {
+  opacity: 1;
+}

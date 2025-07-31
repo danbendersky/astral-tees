@@ -9,6 +9,7 @@ import Return from './pages/Return.js'
 
 function App() {
   return (
+    <>
     <div className="gradient-bg">
       <svg xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -19,6 +20,7 @@ function App() {
           </filter>
         </defs>
       </svg>
+    </div>
       <BrowserRouter>
         <div className="route-content" style={{ position: 'relative', zIndex: 2 }}>
           <Routes>
@@ -38,7 +40,7 @@ function App() {
           <InteractiveBubble/>
         </div>
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 

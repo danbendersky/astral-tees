@@ -4,6 +4,7 @@ import {
   EmbeddedCheckoutProvider,
   EmbeddedCheckout
 } from '@stripe/react-stripe-js';
+import './CheckoutForm.css'
 
 const stripePromise = loadStripe("pk_test_51RqdhLAeDiglaAruNSHhHupHJj0RtmhukNWFsCld0U4IUeB7jiYI2oeL9sOffKKTzym90yGI4FQ2FcRdRWu33ngQ008DKgZCgK");
 
@@ -20,7 +21,7 @@ const CheckoutForm = () => {
   const options = {fetchClientSecret};
 
   return (
-    <div id="checkout">
+    <div id="checkout" className='form'>
       <EmbeddedCheckoutProvider
         stripe={stripePromise}
         options={options}

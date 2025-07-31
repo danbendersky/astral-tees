@@ -1,0 +1,8 @@
+.form {
+    width: 80%;
+    justify-self: center;
+    border: 20px solid white;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

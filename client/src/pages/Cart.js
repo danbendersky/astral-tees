@@ -5,9 +5,12 @@ import './Cart.css'
 import CheckoutForm from "../components/CheckoutForm/CheckoutForm";
 
 function Cart() {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const total = cart.reduce((t, i) => t + i.price, 0);
+    const [cart, setCart] = useState(() => {
+        return JSON.parse(localStorage.getItem("cart")) || [];
+    });
+    const total = cart.reduce((t, i) => t + i.price * i.qty, 0);
     const [reloadKey, setReloadKey] = useState(0);
+    const [checkout, setCheckout] = useState(false);
     const reloadPage = () => {
         setReloadKey(k => k + 1);
     };
@@ -19,7 +22,12 @@ function Cart() {
             <CartItem key={item.productId} itemData={item} reloadTrigger={reloadPage}/>
         ))}
         </div>
-        <CheckoutForm/>
+        <button className='checkout' onClick={() => setCheckout(!checkout)}>
+        Checkout Now For A Total Of ${total}
+        </button>
+        {checkout && (
+            <CheckoutForm/>
+        )}
         </>
     );
 }
