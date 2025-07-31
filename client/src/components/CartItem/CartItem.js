@@ -24,7 +24,7 @@ function CartItem({ itemData, reloadTrigger}) {
   }
 
   return (
-    <button className="cart-tile" onClick={handleClick}>
+    <div className="cart-tile" onClick={handleClick}>
       <h2 style={{ 
         justifyContent: "left", 
         fontSize: "2rem", 
@@ -64,7 +64,7 @@ function CartItem({ itemData, reloadTrigger}) {
       <button className='delete' onClick={handleDelete}>
         Trash can here
       </button>
-    </button> 
+    </div> 
   );
 }
 

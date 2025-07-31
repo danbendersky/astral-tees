@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from '../components/Header/Header';
 import CartItem from '../components/CartItem/CartItem'
 import './Cart.css'
+import CheckoutForm from "../components/CheckoutForm/CheckoutForm";
 
 function Cart() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -18,7 +19,7 @@ function Cart() {
             <CartItem key={item.productId} itemData={item} reloadTrigger={reloadPage}/>
         ))}
         </div>
-        Checkout embed goes here
+        <CheckoutForm/>
         </>
     );
 }

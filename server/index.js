@@ -1,15 +1,30 @@
 // index.js
 require('dotenv').config();
 const express = require('express');
+const stripe = require('stripe')('sk_test_51RqdhLAeDiglaAruwhJC5jLbEO57jS6E70FdXNUw6FbFAcNg6HxzQTSuyBottk8eIEnvOClcZKJxm7aq0N6BmqjI00aTF8R3vq');
 const app = express();
 const PORT = 3001;
+const DOMAIN = 'http://localhost:3000'
 
 // Middleware to parse JSON
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello from Node.js backend!');
+app.post('/create-checkout-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    ui_mode: 'embedded',
+    line_items: [
+      {
+        price: 'price_1RqxakAeDiglaAruBPLX42mv',
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    return_url: `${DOMAIN}/return?session_id={CHECKOUT_SESSION_ID}`,
+  });
+
+  res.send({clientSecret: session.client_secret});
 });
+
 app.get('/fetchallproducts', async (_, res) => {
   console.log('Key');
   console.log('GELATO_KEY:', process.env.GELATO_KEY);
