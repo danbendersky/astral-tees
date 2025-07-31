@@ -23,7 +23,7 @@ function SearchButton() {
             <div
                 className="search-button"
                 style={{
-                    height: '20%',
+                    height: '70%',
                     aspectRatio: '1 / 1',
                     cursor: 'pointer'
                 }}

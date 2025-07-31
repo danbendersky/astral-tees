@@ -19,13 +19,13 @@ header {
     display: flex;
     margin-left: auto;
     height: 100%;
-    align-items: center;
+    align-items: right;
     justify-content: center;
 }
 
 .header-left {
     display: flex;
     height: 100%;
-    align-items: center;
+    align-items: left;
     justify-content: center;
 }
