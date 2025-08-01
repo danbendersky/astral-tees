@@ -15,6 +15,14 @@ function ProductPage() {
   };
 
   useEffect(() => {
+  //This links each product to it's sale price
+  const productPrices = {
+    'd5f968a2-4560-4f5a-a53b-695ccf404eaa': 23.99, //Lava
+    'e23f23b5-7430-4cf6-8786-a5888f2ecf52': 21.99, //Ice Youth
+    'c2723283-2dfb-4938-a519-3a4b9b149c64': 23.99, //American Tee
+    '7795d001-dc6f-4b08-9234-3e012626cf22': 23.99 //T-shirt
+  }
+
     const query = new URLSearchParams();
     query.append('id', id);
 
@@ -25,7 +33,8 @@ function ProductPage() {
             return data;
         })
         .then(data => setProductData(data));
-  }, [id]);
+    productData.price = productPrices[productData.productId]
+  }, [id, productData]);
 
   return (<div>
         <button className="exit-btn" onClick={pageReturn}>

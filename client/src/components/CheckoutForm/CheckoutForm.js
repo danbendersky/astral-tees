@@ -10,10 +10,10 @@ const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 //This links gelato products to stripe (productId : priceId)
 const gelatoToStripe = {
-  'd5f968a2-4560-4f5a-a53b-695ccf404eaa': 'price_1RrHyHPPpqBJhTNiPx7PpSmI',
-  'e23f23b5-7430-4cf6-8786-a5888f2ecf52': 'price_1RrI5BPPpqBJhTNiI8LoxxoC',
-  'c2723283-2dfb-4938-a519-3a4b9b149c64': 'price_1RrI3qPPpqBJhTNiryk97nEt',
-  '7795d001-dc6f-4b08-9234-3e012626cf22': 'price_1RrICoPPpqBJhTNioFxJiNpU'
+  'd5f968a2-4560-4f5a-a53b-695ccf404eaa': 'price_1RrHyHPPpqBJhTNiPx7PpSmI', //Lava
+  'e23f23b5-7430-4cf6-8786-a5888f2ecf52': 'price_1RrI5BPPpqBJhTNiI8LoxxoC', //Ice Youth
+  'c2723283-2dfb-4938-a519-3a4b9b149c64': 'price_1RrI3qPPpqBJhTNiryk97nEt', //American Tee
+  '7795d001-dc6f-4b08-9234-3e012626cf22': 'price_1RrICoPPpqBJhTNioFxJiNpU' //T-shirt
 };
 
 const stripePromise = loadStripe("pk_live_51RqdhFPPpqBJhTNiAY4OmOgSVofSMt34mAH9DeESNKxxNr0VJLT9VnEmlV2IdDev01oQvCl5ArvrKcPbHnN1kuuG00322gGl2t");
