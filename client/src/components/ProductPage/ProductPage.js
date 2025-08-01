@@ -1,7 +1,7 @@
 import './ProductPage.css'
 import React, { useEffect, useState} from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import exit from '../../assets/exit.png';
+import { X } from 'lucide-react';
 import ProductPurchase from '../ProductPurchase/ProductPurchase';
 
 function ProductPage() {
@@ -28,12 +28,7 @@ function ProductPage() {
 
   return (<div>
         <button className="exit-btn" onClick={pageReturn}>
-            <img src={exit} alt="Exit" style={{
-                width: "100%", 
-                height: "100%",
-                objectFit: "contain",
-                display: "flex"
-                }}/>
+            <X className='x' size='100%' style={{display: 'flex'}}/>
         </button>
         <h2 className="title">
           {productData.title}

@@ -37,7 +37,7 @@ function CartItem({ itemData, reloadTrigger}) {
         <div style={{ display: "flex", flexDirection: "row", justifyContent: "left", width: "200px", height: "200px", position: "relative", overflow: "hidden"}}>
           <img
             src={itemData.image}
-            alt={itemData.name}
+            alt={itemData.image.toString()}
             style={{
               width: "100%",
               height: "auto",

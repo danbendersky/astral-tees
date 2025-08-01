@@ -1,6 +1,6 @@
 import './Product.css';
-import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import TransparentImage from '../TransparentImage/TransparentImage';
 
 function Product({ productData }) {
   const navigate = useNavigate();
@@ -20,13 +20,14 @@ function Product({ productData }) {
       </h2>
       {productData.previewUrl && (
         <div style={{ width: "300px", height: "300px", position: "relative", overflow: "hidden", margin: "0 auto" }}>
-          <img
+          <TransparentImage
             src={productData.previewUrl}
-            alt={productData.name}
+            threshold={200}
             style={{
               width: "100%",
               height: "auto",
               display: "block",
+              filter: "drop-shadow(2px 2px 4px white)"
             }}
           />
         </div>

@@ -4,7 +4,8 @@ const express = require('express');
 const stripe = require('stripe')('sk_test_51RqdhLAeDiglaAruwhJC5jLbEO57jS6E70FdXNUw6FbFAcNg6HxzQTSuyBottk8eIEnvOClcZKJxm7aq0N6BmqjI00aTF8R3vq');
 const app = express();
 const PORT = 3001;
-const DOMAIN = 'http://localhost:3000'
+const DOMAIN = 'http://localhost:3000';
+const sharp = require('sharp');
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -62,4 +63,51 @@ app.get('/fetchproduct', async (req, res) => {
 });
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
+});
+
+app.get('/image-proxy-transparent', async (req, res) => {
+  const imageUrl = req.query.url;
+  if (!imageUrl) return res.status(400).send('Missing url');
+
+  try {
+    const response = await fetch(imageUrl);
+    if (!response.ok) return res.status(404).send('Image not found');
+
+    const buffer = await response.buffer();
+
+    // Load image with sharp
+    const image = sharp(buffer).ensureAlpha();
+
+    // Extract raw RGBA pixels
+    const { data, info } = await image.raw().toBuffer({ resolveWithObject: true });
+
+    const threshold = 250; // 0-255, tweak to catch near-white
+
+    // Iterate over pixels (RGBA)
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
+
+      if (r > threshold && g > threshold && b > threshold) {
+        // Set alpha to 0 to make pixel transparent
+        data[i + 3] = 0;
+      }
+    }
+
+    // Use Sharp to remove white-ish background (fuzz factor to remove near-white)
+    const processedBuffer = await sharp(data, {
+      raw: {
+        width: info.width,
+        height: info.height,
+        channels: 4,
+      }
+    }).png().toBuffer();
+
+    res.set('Content-Type', 'image/png');
+    res.send(processedBuffer);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server error');
+  }
 });
