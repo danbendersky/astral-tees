@@ -16,7 +16,7 @@ const Logo = () => {
             aspectRatio: '1 / 1',
             transition: 'transform 0.3s ease',
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'right',
         }}
         onClick={handleClick}
         >
