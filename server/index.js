@@ -1,7 +1,7 @@
 // index.js
 require('dotenv').config();
 const express = require('express');
-const stripe = require('stripe')('sk_test_51RqdhLAeDiglaAruwhJC5jLbEO57jS6E70FdXNUw6FbFAcNg6HxzQTSuyBottk8eIEnvOClcZKJxm7aq0N6BmqjI00aTF8R3vq');
+const stripe = require('stripe')(process.env.STRIPE_LIVE_KEY);
 const app = express();
 const PORT = 3001;
 const DOMAIN = 'http://localhost:3000';
@@ -11,15 +11,14 @@ const sharp = require('sharp');
 app.use(express.json());
 
 app.post('/create-checkout-session', async (req, res) => {
+  console.log("REQ.BODY.ITEMS:", req.body.items);
   const session = await stripe.checkout.sessions.create({
     ui_mode: 'embedded',
-    line_items: [
-      {
-        price: 'price_1RqxakAeDiglaAruBPLX42mv',
-        quantity: 1,
-      },
-    ],
+    line_items: req.body.items,
     mode: 'payment',
+    automatic_tax: {
+      enabled: true,
+    },
     return_url: `${DOMAIN}/return?session_id={CHECKOUT_SESSION_ID}`,
   });
 
