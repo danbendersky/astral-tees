@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 const Return = () => {
   const [status, setStatus] = useState(null);
@@ -10,7 +11,7 @@ const Return = () => {
     const urlParams = new URLSearchParams(queryString);
     const sessionId = urlParams.get('session_id');
 
-    fetch(`/session-status?session_id=${sessionId}`)
+    fetch(`${BASE_URL}/session-status?session_id=${sessionId}`)
       .then((res) => res.json())
       .then((data) => {
         setStatus(data.status);

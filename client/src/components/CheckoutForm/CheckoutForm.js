@@ -6,6 +6,8 @@ import {
 } from '@stripe/react-stripe-js';
 import './CheckoutForm.css'
 
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 //This links gelato products to stripe (productId : priceId)
 const gelatoToStripe = {
   'd5f968a2-4560-4f5a-a53b-695ccf404eaa': 'price_1RrHyHPPpqBJhTNiPx7PpSmI',
@@ -29,7 +31,7 @@ const CheckoutForm = () => {
       quantity: item.qty
     }));
 
-    fetch("/create-checkout-session", {
+    fetch(`${BASE_URL}/create-checkout-session`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: lineItems })

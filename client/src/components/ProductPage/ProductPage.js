@@ -3,6 +3,7 @@ import React, { useEffect, useState} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { X } from 'lucide-react';
 import ProductPurchase from '../ProductPurchase/ProductPurchase';
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function ProductPage() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ function ProductPage() {
     const query = new URLSearchParams();
     query.append('id', id);
 
-    fetch(`/fetchproduct?${query.toString()}`)
+    fetch(`${BASE_URL}/fetchproduct?${query.toString()}`)
         .then(response => response.json())
         .then(data => {
             console.log('data:', data);

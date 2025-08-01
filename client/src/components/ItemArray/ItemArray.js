@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Product from "../Product/Product";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function ItemArray({ itemFilter }) {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
         console.log("Client attempting fetch productList");
-        fetch('/fetchallproducts')
+        fetch(`${BASE_URL}/fetchallproducts`)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
