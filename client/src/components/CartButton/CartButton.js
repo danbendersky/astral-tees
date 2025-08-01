@@ -17,6 +17,7 @@ const Logo = () => {
             transition: 'transform 0.3s ease',
             display: 'flex',
             alignItems: 'center',
+            justifySelf: 'right'
         }}
         onClick={handleClick}
         >
