@@ -6,6 +6,11 @@ const app = express();
 const PORT = 3001;
 const DOMAIN = 'http://localhost:3000';
 const sharp = require('sharp');
+const cors = require('cors');;
+app.use(cors({
+  origin: 'https://astral-tees-client.onrender.com',
+  credentials: true
+}));
 
 // Middleware to parse JSON
 app.use(express.json());
