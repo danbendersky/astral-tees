@@ -3,8 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const stripe = require('stripe')(process.env.STRIPE_LIVE_KEY);
 const app = express();
-const PORT = 3001;
-const DOMAIN = 'http://localhost:3000';
+const PORT = process.env.PORT || 3001;
+const DOMAIN = 'https://astral-tees-client.onrender.com';
 const sharp = require('sharp');
 const cors = require('cors');;
 app.use(cors({
