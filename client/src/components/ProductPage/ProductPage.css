@@ -32,13 +32,13 @@
   width: 70%;
   display: flex;
   align-items: center;
-  border: 3px groove black;
-  border-radius: 3px;
 }
 
 .cover {
   width: 100%;
   height: auto;
+  border: 3px groove black;
+  border-radius: 3px;
 }
 
 .description-wrapper {
