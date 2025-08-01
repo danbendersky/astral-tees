@@ -7,8 +7,21 @@ const PORT = process.env.PORT || 3001;
 const DOMAIN = 'https://astral-tees-client.onrender.com';
 const sharp = require('sharp');
 const cors = require('cors');;
+const allowedOrigins = [
+  'https://astral-tees-client.onrender.com',
+  'https://astral-tees-development.onrender.com'
+];
+
 app.use(cors({
-  origin: 'https://astral-tees-client.onrender.com',
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
