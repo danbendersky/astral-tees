@@ -41,7 +41,7 @@
 }
 
 .dropbtn:hover::before {
-  opacity: 1;
+  opacity: 0.4;
 }
 
 .dropdown-content {
