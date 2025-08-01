@@ -16,7 +16,7 @@ function ProductPurchase({productData}) {
     }
 
     const getPrice = () => {
-        return 20;
+        return productData.price;
     }
 
     useEffect(() => {
